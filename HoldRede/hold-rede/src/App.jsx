@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Oversikt } from './src/assets/components/Oversikt.jsx'
+import { Oversikt } from './assets/components/Oversikt.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
