@@ -11,6 +11,7 @@ function listInput() {
 
     leggtilknapp.innerHTML="legg til";
 
+    leggtilknapp.classList.add("styleButton");
     
     let listInput = document.createElement("input")
     listInput.id="inputid";
@@ -54,6 +55,7 @@ function lagogvis() {
             button.innerHTML="del item";
             li.appendChild(button);
 
+            button.classList.add("styleButton");
 
         } else {
 
@@ -90,6 +92,7 @@ function lagogvis() {
         let listid = list[val];
         document.getElementById(listid+"_listtext",listid).style.display="none";
         document.getElementById(listid).style.display="none";
+        document.querySelectorAll("#",listid).classList.add("styleButton")
     }
 
 
