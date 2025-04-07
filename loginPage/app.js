@@ -87,7 +87,7 @@ app.get('/home', requireLogin, ( req , res ) => {
     res.sendFile(__dirname+"/private/home.html")
 });
 
-app.get('notesApp', requireLogin, ( req , res ) => {
+app.get('/notesApp', requireLogin, ( req , res ) => {
     res.sendFile(__dirname+"/private/noteApp/noteApp.html");
 });
 
