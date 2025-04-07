@@ -1,0 +1,177 @@
+#formLogin {
+    width: 100%;
+    height: 90%;
+}
+.loginregister {
+    /* shape */
+    width: 50%;
+    height: 100%;
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* style */
+    background-color: var(--color-primary);
+    z-index: +1;
+}
+
+.look {
+    /* shape */
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+        
+    background-size: cover;
+}
+
+.loginregister h1 {
+    padding-top: 5rem;
+    font-family: title;
+}
+
+.loginregister ul {
+    /* shape */
+    width: 90%;
+    height: fit-content;
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 1rem; */
+
+
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 1rem;
+
+    margin-left: 1%;
+    margin-right: 1%;
+
+    /* style */
+    background-color: var(--color-secondary-1);
+
+    border-radius: var(--border-radius);
+    
+}
+
+.loginregister li {
+    /* shape */
+    width: 90%;
+    height: fit-content;
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    
+    padding: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    
+    
+}
+.loginregister div {
+    /* shape */
+    height: fit-content;
+    width: 90%;
+
+    padding-top: 1rem;
+
+    /* flex */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginregister input {
+    /* shape */
+    height: 1rem;
+    width: calc(90%);
+
+    /* style */
+    background-color: var(--color-secondary);
+    color: var(--color-input-txt);
+
+    
+
+    border: none;
+
+    box-shadow: var(--box-shadow);
+}
+.loginregister input:focus{
+    
+    /* shape */
+    outline: 2px var(--color-tertiary-txt);
+    outline-style: solid;
+    border-radius: var(--border-radius);    
+    
+
+    /* style */
+    color: var(--color-input-txt);
+
+}
+
+.quaduneven {
+    z-index:+1; 
+    top: 0; 
+    position: absolute;
+}
+
+.title-div{
+    /* shape */
+    width: 50%;
+    height: 15%;
+    
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* visibility & position fix */
+    z-index: +2;
+    position: absolute;
+    top: 0;
+}
+
+.title-div h1 {
+
+    /* style */
+    font-family: subtitle;
+    font-size: 3rem;
+
+    padding: 0;
+    margin: 0;
+
+    color: var(--color-key-txt);
+
+    z-index: +2;
+    
+}
+
+.title-div p {
+    /* style */
+    font-family: slogan;
+    color: var(--color-primary-1-txt);
+
+    font-size: 2rem;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.shapeQuadUneven {
+    
+}

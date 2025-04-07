@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./loginregister.css">
+    <script src="./register.js" defer></script>
+</head>
+<body>
+    <main>
+        <section  class="loginregister">
+            <h1 class="title">Create your account</h1>
+            <form id="formLogin">
+                <ul>
+                    <li>
+                        <label for="email">E-mail</label>
+                        <!-- change to email after debug -->
+                        <input placeholder="your@mail.example" type="text" name="email" id="email" required autocomplete="username">
+                    </li>
+                    <li>
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" required>
+                    </li>
+                    <li>
+                        <label for="firstname">Firstname</label>
+                        <input placeholder="John" type="text" name="firstname" id="firstname" required>
+                    </li>
+                    <li>
+                        <label for="firstname">Lastname</label>
+                        <input placeholder="Doe" type="text" name="lastname" id="lastname" required>
+                    </li>
+                    <li>
+                        <label for="password">Password</label>
+                        <input placeholder="securePassword=¤%" type="password" name="password" id="password" required autocomplete="current-password">
+                    </li>
+                    <div>
+                        <button class="btn" type="submit">Register</button>
+                        <button class="btn" onclick="window.location.replace('./login.html')">Login</button>
+                    </div>
+                </ul>
+            </form>
+        </section>
+        <section class="look">
+            <img src="./svg/SVG/shapeQuadUneven1.svg" class="quaduneven1" alt="uneven quad shape">
+            <div class="title-div">
+                <h1>Holdrede</h1>
+                <p>Organization made bearable</p>
+            </div>
+
+            
+           
+            
+            
+        </section>
+    </main>
+</body>
+</html> 

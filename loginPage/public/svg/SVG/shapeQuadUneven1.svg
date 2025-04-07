@@ -1,0 +1,26 @@
+<?xml-stylesheet href="../../style.css" version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 2000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: hsl(220, 29%, 70%);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" width="1600" height="2000"/>
+    </clipPath>
+  </defs>
+  <g id="_1" data-name="1">
+    <g class="cls-3">
+      <polygon class="cls-1" points="1600 500 0 300 0 0 1600 0 1600 500"/>
+    </g>
+  </g>
+</svg>
