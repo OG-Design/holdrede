@@ -87,6 +87,10 @@ app.get('/home', requireLogin, ( req , res ) => {
     res.sendFile(__dirname+"/private/home.html")
 });
 
+app.get('notesApp', requireLogin, ( req , res ) => {
+    res.sendFile(__dirname+"/private/noteApp/noteApp.html");
+});
+
 app.listen(PORT, () => {
     console.log(`server is running on: http://localhost:${PORT}`);
 });
