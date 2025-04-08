@@ -52,6 +52,7 @@ app.post('/login', async ( req , res ) => {
     };
 
     req.session.user = {id: user.uid, fistname: user.firstname };
+    
     res.json({ message: "login success" });
 });
 
@@ -84,7 +85,11 @@ app.post('/register', async (req, res) => {
 });
 
 app.get('/home', requireLogin, ( req , res ) => {
-    res.sendFile(__dirname+"/private/home.html")
+    res.sendFile(__dirname+"/private/home.html")    
+});
+
+app.get('/home', requireLogin, ( req , res ) => {
+   
 });
 
 app.get('/notesApp', requireLogin, ( req , res ) => {

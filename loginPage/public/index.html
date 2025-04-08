@@ -6,12 +6,25 @@
     <title>HomePage</title>
 
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./publicHomeMenu.css">
+    <link rel="stylesheet" href="./publicHome.css">
+
+
 </head>
 <body>
-    <header>
-        <h1>holdrede</h1>
-    </header>
-    <button onclick="window.location.replace('./login.html')">login</button>
-    <button onclick="window.location.replace('./register.html')">register</button>
+    <!-- main -->    
+    <main>
+        <menu>
+            <img src="./svg/SVG/HoldRedeLogo.svg" alt="" style="top: 0; position: absolute;">
+            <button class="pubHomeBtn" onclick="window.location.replace('./login.html')">login</button>
+            <button class="pubHomeBtn" onclick="window.location.replace('./register.html')">register</button>
+        </menu>
+        <section>
+            <img class="banner" src="./svg/SVG/shapeQuadUnevenNullMargin.svg" alt="Uneven quad shape">
+            <h1>Holdrede</h1>
+            <p>provides a quick and easy solution to keep tabs of your goals and shopping</p>
+        </section>
+    </main>
+    
 </body>
 </html>

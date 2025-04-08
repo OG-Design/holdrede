@@ -175,3 +175,9 @@
 .shapeQuadUneven {
     
 }
+
+.logoLoginRegister {
+    width: 25%;
+    position: absolute; 
+    top:500%;
+}

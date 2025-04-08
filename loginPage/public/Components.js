@@ -1,0 +1,8 @@
+console.log("ComponentsScriptRunning");
+document.getElementById('notesAppBtn').addEventListener("click", notesApp)
+function notesApp () {
+    console.log("running: notesApp")
+    const getAppRoot = document.getElementById('noteRoot');
+    getAppRoot.style.display="block";
+   
+}

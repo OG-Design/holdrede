@@ -1,0 +1,15 @@
+menu {
+    /* shape */
+    height: 100%;
+    width: 20%;
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* style */
+    background-color: var(--color-primary);
+}
+

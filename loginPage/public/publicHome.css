@@ -1,0 +1,72 @@
+section {
+    /* shape */
+    width:80%;
+    height: 100%;
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    background-color: var(--color-primary-1);
+    overflow: hidden;
+
+}
+
+section h1 {
+    /* style */
+    font-family: subtitle;
+    font-size: 4rem;
+
+    padding: 0;
+    margin: 0;
+    margin-top: 1rem;
+
+    color: var(--color-key-txt);
+
+    z-index: +2;
+
+}
+
+section p {
+    /* style */
+    font-family: slogan;
+    color: var(--color-primary-1-txt);
+
+    font-size: 1.5rem;
+    text-align: end;
+    margin: 1rem;
+    padding: 0;
+    z-index: +2;
+}
+
+.banner {
+    position: absolute;
+}
+
+.pubHomeBtn {
+    /* shape */
+    width:90%;
+    height:3rem;
+    border-style: none;
+    border-width: none;
+    border-radius: var(--border-radius);
+    
+
+    margin: .1rem;
+
+    /* style */
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-txt);
+    
+    box-shadow: var(--box-shadow);
+
+    font-family: btn;
+
+    transition: .2s;
+}
+
+.pubHomeBtn:active {
+    background-color: var(--color-secondary-1);
+}

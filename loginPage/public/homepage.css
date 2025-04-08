@@ -9,6 +9,11 @@ section {
     height: 100%;
     width: 80%;
 
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
     overflow: scroll;
     scrollbar-width: none;
@@ -25,4 +30,12 @@ section {
 
 .title-div:first-child {
     z-index: +1;
+}
+
+.titleComponents {
+    font-family: title;
+    color: var(--color-primary-txt);
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
 }
