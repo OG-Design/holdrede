@@ -13,16 +13,17 @@
     <main>
         <menu>
             <button class="btn">Home</button>
-            <button class="btn">Lists</button>
+            <button class="btn" onclick="noteList">Lists</button>
         </menu>
         <section>
 
-            <div>
-                homePage 
+            <div id="homeRoot">
+                <h1>Welcome "usrname placeholder"</h1>
+                
                 <button class="btn" id="logout" onclick="logout">Logout</button>
             </div>
             <div id="noteRoot" style="display: none;" onClick="">
-
+                <iframe id="noteDisplay></iframe>
             </div>
             
         </section>
