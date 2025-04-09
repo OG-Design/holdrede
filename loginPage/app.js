@@ -51,7 +51,7 @@ app.post('/login', async ( req , res ) => {
         return res.status(401).json({ message: wrong });
     };
 
-    req.session.user = {id: user.uid, fistname: user.firstname };
+    req.session.user = {id: user.uid, firstname: user.firstname, username: user.username, email: user.email };
     
     res.json({ message: "login success" });
 });
@@ -61,8 +61,6 @@ app.post('/logout', ( req , res ) => {
     // res.json({message: "logout success"});
     res.redirect('../login.html');
 });
-
-
 
 app.post('/register', async (req, res) => {
     const {
@@ -78,8 +76,16 @@ app.post('/register', async (req, res) => {
     const hashPassword = await bcrypt.hash(password, saltRounds);
 
     // Correctly pass parameters as a list
-    const statement = db.prepare("INSERT INTO user (email, username, firstname, lastname, password) VALUES (?, ?, ?, ?, ?)");
-    const info = statement.run(email, username, firstname, lastname, hashPassword);
+    try {
+        const statement = db.prepare("INSERT INTO user (email, username, firstname, lastname, password) VALUES (?, ?, ?, ?, ?)");
+        const info = statement.run(email, username, firstname, lastname, hashPassword);
+        res.json({ message: "User registered successfully" });
+        } catch (error) {
+
+        console.error('Error inserting data:', error.message, "if login fails try to verify your account");
+        return res.status(500).json({ message: 'the email adress is already registered.' });
+    }
+    
 
     
 });
@@ -88,8 +94,13 @@ app.get('/home', requireLogin, ( req , res ) => {
     res.sendFile(__dirname+"/private/home.html")    
 });
 
-app.get('/home', requireLogin, ( req , res ) => {
-   
+app.get('/userinfo', requireLogin, ( req , res ) => {
+    const username = req.session.user.username; 
+    // debug
+    console.log(username);
+    const user = db.prepare("SELECT * FROM user WHERE username = ?").get(username);
+    // req.session.user = {id: user.uid, firstname: user.firstname, username: user.username }
+    res.json(user);
 });
 
 app.get('/notesApp', requireLogin, ( req , res ) => {

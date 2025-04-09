@@ -32,4 +32,4 @@ async function registerUser(event) {
     alert(result.message);
 }
 
-document.getElementById("form").addEventListener("submit", registerUser);
+document.getElementById("formRegister").addEventListener("submit", registerUser);
