@@ -6,24 +6,29 @@
     <title>HomePage_user</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./homepage.css">
+    <link rel="stylesheet" href="./profileCard.css">
     <script src="./logout.js" defer></script>
     <script src="/Components.js" defer></script>
 </head>
 <body>
     <main>
         <menu>
-            <button class="btn" id="homeAppBtn">Home</button>
+            <button class="btn" id="homeAppBtn">Dashboard</button>
             <button class="btn" id="notesAppBtn">Notes</button>
         </menu>
         <section>
 
             <div id="homeRoot">
-                <h1 class="titleComponents" id="usernameId">Welcome </h1>
-                
+                <h1 class="titleComponents" id="usernameId">Welcome <!--js--></h1>
+                <div class="profileCardContainer">
+                    <!-- profilecard style @ profileCard.css -->
+                    <!-- "profile card" -->
+                    <img src="./svg/SVG/editProfileIcon1.svg" alt="alt">
+                </div>
                 <button class="btn" id="logout" onclick="logout">Logout</button>
             </div>
             <div id="noteRoot" style="display: none;" onClick="">
-                <iframe id="noteDisplay></iframe>
+                <iframe id="noteDisplay"></iframe>
             </div>
             
         </section>

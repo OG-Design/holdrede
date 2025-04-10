@@ -80,7 +80,7 @@ app.post('/register', async (req, res) => {
         const statement = db.prepare("INSERT INTO user (email, username, firstname, lastname, password) VALUES (?, ?, ?, ?, ?)");
         const info = statement.run(email, username, firstname, lastname, hashPassword);
         res.json({ message: "User registered successfully" });
-        } catch (error) {
+    } catch (error) {
 
         console.error('Error inserting data:', error.message, "if login fails try to verify your account");
         return res.status(500).json({ message: 'the email adress is already registered.' });
@@ -91,7 +91,7 @@ app.post('/register', async (req, res) => {
 });
 
 app.get('/home', requireLogin, ( req , res ) => {
-    res.sendFile(__dirname+"/private/home.html")    
+    res.sendFile(__dirname+"/private/dashboard.html")    
 });
 
 app.get('/userinfo', requireLogin, ( req , res ) => {
@@ -103,9 +103,15 @@ app.get('/userinfo', requireLogin, ( req , res ) => {
     res.json(user);
 });
 
-app.get('/notesApp', requireLogin, ( req , res ) => {
-    res.sendFile(__dirname+"/private/noteApp/noteApp.html");
-});
+// app.post('/notesApp', requireLogin, ( req , res ) => {
+//     try{
+//         res.render(__dirname+"/private/noteApp/noteApp.html");
+//     } catch (error) {
+//         console.error('Error sending file:', error.message);
+//         res.status(500).send('Internal Server Error');
+//     }
+    
+// });
 
 app.listen(PORT, () => {
     console.log(`server is running on: http://localhost:${PORT}`);

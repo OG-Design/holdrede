@@ -1,0 +1,25 @@
+:root {
+
+    --heightCard: 4.5rem;
+    --widthCard: 10rem;
+
+}
+.profileCardContainer {
+    /* shape */
+    width: var(--widthCard);
+    height: var(--heightCard);
+    border-radius: var(--border-radius);
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ 
+    /* style */
+    background-color: var(--color-secondary-1);
+}
+.profileCardContainer img {
+    /* shape */
+    height: calc(var(--heightCard) - 2rem);
+}

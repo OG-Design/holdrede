@@ -49,10 +49,17 @@ function homeApp () {
 };
 
 
-function notesApp () {
+async function notesApp () {
     console.log("running: notesApp")
     const getAppRoot = document.getElementById('noteRoot');
-   
+    const response = await fetch('/notesApp', {
+        method: 'POST',
+        headers: {
+            'content-type': 'html/text'
+        },
+        body: HTMLOutputElement
+    });
+
     if (getAppRoot.style.display="none") {
         getAppRoot.style.display="block";
     } else if (getAppRoot.style.display="block") {

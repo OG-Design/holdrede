@@ -1,0 +1,1 @@
+SELECT * FROM listItem WHERE listItem.listID = 1
