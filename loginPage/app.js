@@ -16,6 +16,9 @@ const PORT = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 
+app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile);
+
 // session setup
 app.use(
     session({
@@ -103,15 +106,9 @@ app.get('/userinfo', requireLogin, ( req , res ) => {
     res.json(user);
 });
 
-// app.post('/notesApp', requireLogin, ( req , res ) => {
-//     try{
-//         res.render(__dirname+"/private/noteApp/noteApp.html");
-//     } catch (error) {
-//         console.error('Error sending file:', error.message);
-//         res.status(500).send('Internal Server Error');
-//     }
-    
-// });
+app.get('/noteApp', requireLogin, ( req , res ) => {
+    res.render(__dirname+"/private/noteApp/noteApp.html");   
+});
 
 app.listen(PORT, () => {
     console.log(`server is running on: http://localhost:${PORT}`);

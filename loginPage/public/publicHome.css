@@ -70,3 +70,12 @@ section p {
 .pubHomeBtn:active {
     background-color: var(--color-secondary-1);
 }
+
+.logo {
+    /* shape */
+    width: 10vw;
+    
+    /* position */
+    top: 0; 
+    position: absolute;
+}

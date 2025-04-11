@@ -1,3 +1,5 @@
+
+
 console.log("ComponentsScriptRunning");
 
 document.getElementById('notesAppBtn').addEventListener("click", notesApp);
@@ -52,13 +54,10 @@ function homeApp () {
 async function notesApp () {
     console.log("running: notesApp")
     const getAppRoot = document.getElementById('noteRoot');
-    const response = await fetch('/notesApp', {
-        method: 'POST',
-        headers: {
-            'content-type': 'html/text'
-        },
-        body: HTMLOutputElement
-    });
+    const response = await fetch('/noteApp');
+    
+    getAppRoot.innerHTML=response.json;
+    console.log(response.url)
 
     if (getAppRoot.style.display="none") {
         getAppRoot.style.display="block";
