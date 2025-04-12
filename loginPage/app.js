@@ -107,7 +107,7 @@ app.get('/userinfo', requireLogin, ( req , res ) => {
 });
 
 app.get('/noteApp', requireLogin, ( req , res ) => {
-    res.render(__dirname+"/private/noteApp/noteApp.html");   
+    res.sendFile(__dirname+"/private/noteApp/noteApp.html");   
 });
 
 app.listen(PORT, () => {

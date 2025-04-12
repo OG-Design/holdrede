@@ -1,0 +1,15 @@
+section {
+    /* shape */
+    width: 80%;
+    height: 100%;
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* style */
+    background-color: var(--color-secondary);
+
+}
