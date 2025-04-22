@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note</title>
-    <link rel="stylesheet" href="../../public/style.css">
-    <link rel="stylesheet" href="../../public/noteApp.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/noteApp.css">
+    <script src="/noteapp.js" defer></script>
 </head>
 <body>
-    <main>
-        <section class="listShow">
+    <div>
+        <input type="search" name="notesearch" id="notesearch" placeholder="Search notes..." class="searchBar">
+        <button id="searchBtn" class="searchBtn">Search</button>
+        <section id="listShow"class="listShow">
             <ul id="notelist">
-                <h1 class="title">Listtitle</h1>
-                <p class="subtitle">Author: </p>
+                <h1 id="notelistTitle1" class="title"><!--js--></h1>
+                <p class="subtitle">Author: <!--js--></p>
+                <p class="subtitle">Your role: <!--js read / write etc--></p>
+
+                <button onclick="console.log('new note added to list')">new note</button>
             </ul>
         </section>
         
-    </main>
+    </div>
 </body>
 </html>

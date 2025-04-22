@@ -1,3 +1,4 @@
+
 console.log("ComponentsScriptRunning");
 
 document.getElementById('notesAppBtn').addEventListener("click", notesApp);
@@ -8,6 +9,8 @@ document.getElementById('homeRoot').style.display="block";
 document.getElementById('noteRoot').style.display="none";
 
 const usernameId = "usernameId";
+
+
 
 // check dom content loaded
 document.addEventListener("DOMContentLoaded", showUserName);
@@ -52,13 +55,8 @@ function homeApp () {
 async function notesApp () {
     console.log("running: notesApp")
     const getAppRoot = document.getElementById('noteRoot');
+    window.location.href = "http://localhost:3000/noteApp";
 
-    const response = await fetch('/noteApp/');
-    console.log(response);
-    getAppRoot.src = response.url;
-    if (getAppRoot.style.display=="none") {
-        getAppRoot.style.display="block";
-    } else if (getAppRoot.style.display=="block") {
-        getAppRoot.style.display="none";
-    };
+    console.log(notesApp)
 };
+

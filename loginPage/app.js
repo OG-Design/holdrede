@@ -54,6 +54,8 @@ app.post('/login', async ( req , res ) => {
         return res.status(401).json({ message: wrong });
     };
 
+    
+
     req.session.user = {id: user.uid, firstname: user.firstname, username: user.username, email: user.email };
     
     res.json({ message: "login success" });
@@ -107,7 +109,52 @@ app.get('/userinfo', requireLogin, ( req , res ) => {
 });
 
 app.get('/noteApp', requireLogin, ( req , res ) => {
-    res.sendFile(__dirname+"/private/noteApp/noteApp.html");   
+    res.sendFile(__dirname+"/private/noteApp/noteApp.html");
+    
+    
+});
+
+app.get('/noteTitle', requireLogin, ( req , res ) => {
+    
+    
+
+    // const notesOwn = db.prepare(`SELECT * FROM listRole WHERE listRole.uid = ?`).all(req.session.user.id);
+    try {
+        const noteTitle = db.prepare(`SELECT list.title, list.listID FROM list INNER JOIN listRole ON list.listID = listRole.listID WHERE listRole.uid = ?`).all(req.session.user.id);
+        console.log(noteTitle);    
+    
+        if ( ! noteTitle ) {
+            return res.status(404).json({ message: "Titles not found" });
+    
+        } else {
+            res.json(noteTitle);
+        }
+
+        req.session.list = noteTitle.listID;
+        console.log(req.session.list.json());
+    } catch (error) {
+        console.error('Error fetching data:', error.message);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+    // const notesOwn = db.prepare(`SELECT * FROM listRole INNER JOIN listItem ON listRole.uid = ? WHERE listRole.role = 'owner'`).all(req.session.user.id);
+    
+    
+});
+
+app.get('/noteItem', requireLogin, ( req , res ) => {
+    try {
+        const noteContent = db.prepare(`SELECT listItem.listID, listItem.listItemID, listItem.content FROM listItem WHERE listItem.listID = ?`).all(req.session.list);
+        console.log(noteContent);
+        if ( ! noteContent ) {
+            return res.status(404).json({ message: "noteItems not found" });
+        } else {
+            res.json(noteContent);
+        }
+} catch (error) {
+        console.error('error fetching noteItem:', error.message);
+        return res.status(500).json({ message: 'Internal server error' });  
+    }
+
 });
 
 app.listen(PORT, () => {

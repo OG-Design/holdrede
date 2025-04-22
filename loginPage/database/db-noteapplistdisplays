@@ -1,0 +1,8 @@
+/*SORT BY TITLE WHERE OWNER*/
+/*SELECT * FROM listRole, listItem INNER JOIN list ON list.title = ? WHERE listRole.role ='owner';*/
+/*DISPLAY ALL LISTS FROM UID WITH CONTENT*/
+/*listRole.role, listRole.uid, listItem.listItemID, listItem.content, list.title*/
+SELECT *
+FROM listRole INNER JOIN list, listItem ON listRole.uid  
+WHERE listRole.uid = 3 
+AND listRole.role = 'owner'; 
