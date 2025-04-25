@@ -17,7 +17,7 @@ async function loginUser(event) {
     const result = await response.json();
     if (response.ok) {
         alert(result.message);
-        window.location.href = '/home';
+        window.location.href = '/dashboard';
     } else {
         alert(result.message);
     }

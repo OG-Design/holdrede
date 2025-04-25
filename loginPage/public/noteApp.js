@@ -3,62 +3,31 @@ console.log("notesApp running");
 
 async function getNotes() {
     
-    async function getNoteContent() {
-        const res = await fetch("/noteItem", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        return res.json().then((data) => {
-            
-            
-        })
-    }
 
 
     console.log("running: getNotes")
-    const res = await fetch("/noteTitle", {
+    const res = await fetch("/noteDisplayOwn", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-        },
+        }
     });
+
+    
     return res.json()
-        .then((data) => {
-            // debug
+        .then( ( data ) => {
+            console.log("Data:");
             console.log(data);
-            data.forEach(ele => {
-
-                // debug
-                console.log("element: ",data.indexOf(ele)," ");
-                
-                const listContainer = document.createElement("div");
-                listContainer.innerHTML = `
-                <ul>
-                    <li class="subtitle"> ${ele.title}</li>
-                    <ul id=${ele.title}>
-                    
-                        
-                    
-                    
-                    
-                    </ul>
-                    </ul>
-                </ul>`;
-                document.getElementById("listShow").appendChild(listContainer);
-
-
-
-            });
-
-            getNoteContent()    
-            
+            console.log("-----------");
+            for (let i = 0; i< data; i++){
+                console.log(data.title[i]);
+                const elem = document.createElement("div");
+                elem.innerHTML=data.title[i];
+                document.getElementById('noteDisplay').appendChild(elem);
+            }
         })
-        .catch((error) => {
-            console.error("Error fetching notes:", error);
-        });
-        
+    
+    
         
 }
 

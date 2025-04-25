@@ -1,0 +1,9 @@
+/*SELECT listItem.listID, listItem.listItemID, listItem.content FROM listItem WHERE listItem.listID = ?
+*/
+
+SELECT listRole.role, listRole.listID, listItem.content, list.title FROM listRole 
+INNER JOIN listItem ON listRole.listID = listItem.listID 
+INNER JOIN list ON list.listID = listRole.listID  
+WHERE listRole.role = 'owner' AND listRole.uid = ?
+/*FROM listRole, list, listItem WHERE listRole.uid = 3 AND listRole.role = 'owner'*/
+
