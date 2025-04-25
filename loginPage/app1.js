@@ -137,30 +137,7 @@ app.get( '/notes', requireLogin , ( req , res ) => {
 });
 
 
-
-
-app.get( '/noteTitle', requireLogin , ( req , res ) => {
-    try {
-        const note = db.prepare('SELECT list.listID, list.title, listRole.uid FROM list INNER JOIN listRole ON list.listID = listRole.listID WHERE listRole.uid = ?').all(req.session.user.id);
-        
-        //debug
-        console.log(note);
-    
-        if ( ! note) {
-            return res.status(404).json({message: 'Titles not found'});
-        } else {
-            res.json(note)
-        }
-        
-        req.session.list.listID = noteTitle.listID
-
-    } catch (error) {
-        console.error('error fetching data:', error.message)
-        res.status(500).json({message: 'internal server error'});
-    };
-
-});
-
+//display own notes
 app.get( '/noteDisplayOwn', requireLogin , ( req , res ) => {
     
     try {
