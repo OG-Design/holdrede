@@ -142,7 +142,7 @@ app.get( '/noteDisplayOwn', requireLogin , ( req , res ) => {
     
     try {
         
-        const noteDisplay = db.prepare("SELECT list.listID, list.title, listRole.uid FROM list INNER JOIN listRole ON list.listID = listRole.listID WHERE listRole.uid = ?").get(req.session.user.id);
+        const noteDisplay = db.prepare("SELECT list.listID, list.title, listRole.uid, listRole.role FROM list INNER JOIN listRole ON list.listID = listRole.listID WHERE listRole.uid = ?").all(req.session.user.id);
         console.log(noteDisplay)
         res.json(noteDisplay);
         

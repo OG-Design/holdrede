@@ -1,5 +1,20 @@
 console.log("notesApp running");
 
+// get notes
+async function resJSON(res) {
+    const data = await res.json();
+    console.log("data response: ", data);
+    data.forEach(elem => {
+        // debug
+        console.log(" ")
+        console.log("LIST ");
+        console.log("title: ", elem.title);
+        console.log("listID: ", elem.listID);
+        console.log("uid: ", elem.uid);
+        console.log("role: ", elem.role);
+    
+    });
+}
 
 async function getNotes() {
     
@@ -14,19 +29,10 @@ async function getNotes() {
     });
 
     
-    return res.json()
-        .then( ( data ) => {
-            console.log("Data:");
-            console.log(data);
-            console.log("-----------");
-            for (let i = 0; i< data; i++){
-                console.log(data.title[i]);
-                const elem = document.createElement("div");
-                elem.innerHTML=data.title[i];
-                document.getElementById('noteDisplay').appendChild(elem);
-            }
-        })
     
+
+    resJSON(res)
+   
     
         
 }
