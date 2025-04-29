@@ -132,28 +132,95 @@ app.get( '/userinfo' , requireLogin , ( req , res ) => {
 
 
 // note app START
-app.get( '/notes', requireLogin , ( req , res ) => {
-    res.sendFile(__dirname+"/private/noteApp/noteApp.html");
+app.get( '/simpleNotes', requireLogin , ( req , res ) => {
+    res.sendFile(__dirname+"/private/noteApp/simpleNotesApp.html");
 });
 
 
-//display own notes
-app.get( '/noteDisplayOwn', requireLogin , ( req , res ) => {
-    
+app.get("/simpleNotesGET", requireLogin, (req, res) => {
     try {
-        
-        const noteDisplay = db.prepare("SELECT list.listID, list.title, listRole.uid, listRole.role FROM list INNER JOIN listRole ON list.listID = listRole.listID WHERE listRole.uid = ?").all(req.session.user.id);
-        console.log(noteDisplay)
-        res.json(noteDisplay);
-        
-
-    } catch ( error ) {
-        console.error('error fetching data: ', error.message);
-        return res.status(500).json({message: 'internal server error'})
+        // get user notes
+        const notes = db.prepare("SELECT noteID, noteTitle, noteContent, uid FROM notes WHERE uid = ?").all(req.session.user.id);
+        res.json(notes);
+    } catch (error) {
+        console.error("error fetching data: ", error.message);
+        return res.status(500).json({ message: "internal server error" });
     }
-    
 });
 
+
+
+app.post("/simpleNotesNewPOST", requireLogin, (req, res) => {
+    try {
+        const { title, content } = req.body;
+        const uid = req.session.user.id;
+        // insert new note
+        const statement = db.prepare("INSERT INTO notes (noteTitle, noteContent, uid) VALUES (?, ?, ?)");
+        statement.run(title, content, uid);
+        res.json({ message: "note created" });
+    } 
+    catch (error) {
+        console.error("error posting data: ", error.message);
+        return res.status(500).json({ message: "internal server error" });
+
+    }
+
+});
+
+app.post("/simpleNotesAlterPOST", requireLogin, (req, res) => {
+    try {
+        const { title, content } = req.body;
+        const uid = req.session.user.id;
+        // insert new note
+        const statement = db.prepare("UPDATE notes SET noteTitle = ?, noteContent = ? WHERE uid = ?");
+        statement.run(title, content, uid);
+        res.json({ message: "note updated" });
+    } 
+    catch (error) {
+        console.error("error posting data: ", error.message);
+        return res.status(500).json({ message: "internal server error" });
+
+    }
+});
+//display own notes
+// app.get( '/noteDisplayOwnTitles', requireLogin , ( req , res ) => {
+    
+//     try {
+        
+//         const noteDisplay = db.prepare("SELECT list.listID, list.title, listRole.uid, listRole.role FROM list INNER JOIN listRole ON list.listID = listRole.listID WHERE listRole.uid = ?").all(req.session.user.id);
+//         console.log(noteDisplay)
+//         res.json(noteDisplay);
+        
+
+//     } catch ( error ) {
+//         console.error('error fetching data: ', error.message);
+//         return res.status(500).json({message: 'internal server error'})
+//     }
+    
+// });
+
+// // display own notes content & title
+// app.get( '/noteDisplayOwnContent', requireLogin , ( req , res ) => {
+    
+//     try {
+        
+//         const noteDisplay = db.prepare(`SELECT listItem.listItemID, listItem.content, list.listID, list.title, listRole.uid, listRole.role 
+//                                         FROM listItem 
+//                                         INNER JOIN listRole ON listItem.listID = listRole.listID
+//                                         INNER JOIN list ON listItem.listID = list.listID
+//                                         WHERE listRole.uid = ?
+//                                         GROUP BY listItem.listItemID
+//                                         `).all(req.session.user.id);
+//         console.log(noteDisplay)
+//         res.json(noteDisplay);
+        
+
+//     } catch ( error ) {
+//         console.error('error fetching data: ', error.message);
+//         return res.status(500).json({message: 'internal server error'})
+//     }
+    
+// });
 
 
 

@@ -6,7 +6,7 @@
     <title>Note</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/noteApp.css">
-    <script src="/noteapp.js" defer></script>
+    <script src="/simpleNotesApp.js" defer></script>
 </head>
 <body>
     <div>
@@ -15,13 +15,13 @@
         <section id="listShow"class="listShow">
             <ul id="notelist">
                 <h1 id="notelistTitle1" class="title"><!--js--></h1>
-                <p class="subtitle">Author: <!--js--></p>
-                <p class="subtitle">Your role: <!--js read / write etc--></p>
-
                 <button onclick="console.log('new note added to list')">new note</button>
             </ul>
             <div id="noteRoot">
-
+                <!-- Notes will be dynamically added here -->
+                <div id="notesContainer">
+                    
+                </div>
             </div>
         </section>
         

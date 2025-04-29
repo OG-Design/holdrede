@@ -55,7 +55,7 @@ function homeApp () {
 async function notesApp () {
     console.log("running: notesApp")
     const getAppRoot = document.getElementById('noteRoot');
-    window.location.href = "http://localhost:3000/notes";
+    window.location.href = "http://localhost:3000/simpleNotes";
 
     console.log(notesApp)
 };

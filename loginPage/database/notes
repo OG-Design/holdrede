@@ -1,0 +1,23 @@
+/*SELECT listItem.listID, listItem.listItemID, listItem.content FROM listItem WHERE listItem.listID = ?
+*/
+
+/*SELECT list.listID, list.title, listRole.uid FROM list INNER JOIN listRole ON list.listID = listRole.listID WHERE listRole.uid = ?
+*/
+
+/*SELECT list.listID, list.title, listRole.uid, listRole.role, listItem.listItemID, listItem.content FROM listItem 
+INNER JOIN listRole, list ON listItem.listID = listItem.listID 
+WHERE listRole.uid = 3
+*/
+/*FROM listRole, list, listItem WHERE listRole.uid = 3 AND listRole.role = 'owner'*/
+
+
+/*SELECT listItem.listItemID, listItem.content, listRole.uid, listRole.role FROM listItem INNER JOIN listRole ON listItem.listItemID = listRole.listRoleID WHERE listRole.uid = ?*/
+
+/*SELECT listItem.listItemID, listItem.content, list.listID, list.title, listRole.uid, listRole.role 
+FROM listItem 
+INNER JOIN listRole, list ON listItem.listID = listRole.listID
+WHERE listRole.uid = ?
+GROUP BY listItem.listItemID
+*/
+
+SELECT noteID, noteTitle, noteContent, uid FROM notes WHERE uid = ?
