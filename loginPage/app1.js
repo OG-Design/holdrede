@@ -169,11 +169,11 @@ app.post("/simpleNotesNewPOST", requireLogin, (req, res) => {
 
 app.post("/simpleNotesAlterPOST", requireLogin, (req, res) => {
     try {
-        const { title, content } = req.body;
+        const { title, content, noteID } = req.body;
         const uid = req.session.user.id;
         // insert new note
-        const statement = db.prepare("UPDATE notes SET noteTitle = ?, noteContent = ? WHERE uid = ?");
-        statement.run(title, content, uid);
+        const statement = db.prepare("UPDATE notes SET noteTitle = ?, noteContent = ? WHERE uid = ? AND noteID = ?");
+        statement.run(title, content, uid, noteID);
         res.json({ message: "note updated" });
     } 
     catch (error) {
