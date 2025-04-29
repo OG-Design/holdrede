@@ -1,7 +1,9 @@
 :root {
     --notepad-default-color: hsl(185, 61%, 66%);
+    --notepad-default-color-less:hsl(185, 31%, 86%);
     --notepad-default-textColor: hsl(185, 15%, 20%);
     --content-padding:0.2rem;
+    --noteBoxShadow:0px 2px 4px 0px rgba(0,0,0,0.2);
 }
 section {
     /* shape */
@@ -45,7 +47,7 @@ section {
     /* style */
     background-color: var(--notepad-default-color);
     
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+    box-shadow: var(--noteBoxShadow);
 }
 
 .titleIn {
