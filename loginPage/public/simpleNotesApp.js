@@ -11,7 +11,7 @@ let searchBar = document.getElementsByClassName("searchbar");
 
 
 
-
+// find notes by uid
 async function getNotes()
     
 
@@ -35,8 +35,8 @@ async function getNotes()
             let titleID = element.noteTitle+element.noteID;
             let contentID = element.noteContent+element.noteID;
             note.innerHTML = `<div class="notepad">
-            <input id="${titleID}" class="titleIn" onClick="" value="${element.noteTitle}" placeholder="title"></input>
-            <textarea id="${contentID}" class="content" onClick="" placeholder="content">${element.noteContent}</textarea>
+            <input id="${titleID}" class="titleIn" value="${element.noteTitle}" placeholder="title"></input>
+            <textarea id="${contentID}" class="content" placeholder="content">${element.noteContent}</textarea>
             
             <button id="${titleID+"_del"}" class="delButton" onClick="deleteNote()"><img src="./svg/SVG/trashBin.svg"></button>
             </div>`;
@@ -44,7 +44,6 @@ async function getNotes()
             container.appendChild(note);
         });
     }
-
 }
 
 let newtitleID = "ntID";
@@ -68,6 +67,7 @@ function noteSkeli() {
 getNotes();
 noteSkeli();
 
+// inspirated by Jo Bjørnar V2 AI
 async function postNewNote() {
     const title = document.getElementById(newtitleID).value;
     const content = document.getElementById(newcontentID).value;
