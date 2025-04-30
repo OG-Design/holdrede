@@ -6,7 +6,7 @@ document.getElementById('homeAppBtn').addEventListener("click", homeApp);
 
 // default display
 document.getElementById('homeRoot').style.display="block";
-document.getElementById('noteRoot').style.display="none";
+// document.getElementById('noteRoot').style.display="none";
 
 const usernameId = "usernameId";
 

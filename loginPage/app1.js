@@ -43,6 +43,15 @@ function requireLogin ( req , res , next ) {
 
 // backend
 
+app.get('/userinfo', requireLogin, ( req , res ) => {
+    const username = req.session.user.username; 
+    // debug
+    console.log(username);
+    const user = db.prepare("SELECT * FROM user WHERE username = ?").get(username);
+    // req.session.user = {id: user.uid, firstname: user.firstname, username: user.username }
+    res.json(user);
+});
+
 // login to user
 app.post( '/login' , async ( req , res ) => {
     const wrong = 'Wrong mail or password';
@@ -116,6 +125,7 @@ app.get( '/dashboard' , requireLogin , ( req , res ) => {
 
 });
 
+// send user dashboard info
 app.get( '/userinfo' , requireLogin , ( req , res ) => {
     const uid = req.session.user.id;
     const username = req.session.user.username;
@@ -136,7 +146,7 @@ app.get( '/simpleNotes', requireLogin , ( req , res ) => {
     res.sendFile(__dirname+"/private/noteApp/simpleNotesApp.html");
 });
 
-
+// get all notes from db where uid = session uid
 app.get("/simpleNotesGET", requireLogin, (req, res) => {
     try {
         // get user notes
@@ -149,7 +159,7 @@ app.get("/simpleNotesGET", requireLogin, (req, res) => {
 });
 
 
-
+// create new note
 app.post("/simpleNotesNewPOST", requireLogin, (req, res) => {
     try {
         const { title, content } = req.body;
@@ -167,6 +177,7 @@ app.post("/simpleNotesNewPOST", requireLogin, (req, res) => {
 
 });
 
+// alter note content title
 app.post("/simpleNotesAlterPOST", requireLogin, (req, res) => {
     try {
         const { title, content, noteID } = req.body;
@@ -229,7 +240,7 @@ app.post("/simpleNotesAlterPOST", requireLogin, (req, res) => {
 
 
 
-
+// open port
 app.listen( PORT , () => {
-    console.log(`server is running on: http://localhost:${PORT}`);
+    console.log(`%cserver is running on:`,`color:#ff0000`, `http://localhost:${PORT}`);
 });
