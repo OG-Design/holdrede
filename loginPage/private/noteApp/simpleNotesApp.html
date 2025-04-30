@@ -12,9 +12,17 @@
 </head>
 <body>
     <div>
-        <input class="searchbar" type="search" name="notesearch" id="notesearch" placeholder="Search notes..." class="searchBar">
-        <button id="searchBtn" class="searchBtn">Search</button>
-        <section id="listShow"class="listShow">
+        <section class="searchArea">
+            <div style="width:5rem;">
+                <button class="exit-btn" onclick="window.location.href='/dashboard'"><img src="/svg/SVG/exit.svg" alt="exit icon"></button>
+            </div>
+            
+            <input class="searchbar" type="search" name="notesearch" id="notesearch" placeholder="Search notes..." class="searchBar">
+            <button id="searchBtn" class="searchButton" onclick="search()">Search</button>
+            
+        </section>
+        <div class="searchDisplay" style="display: none;"></div>
+        <section id="listShow" class="noteWall">
             <h1 class="subtitle" style="align-self: start; padding-left: 1rem; padding-right:1rem; padding-top:.5rem; padding-bottom:.5rem; margin:1rem;  background-color: var(--notepad-default-color-less); box-shadow: var(--noteBoxShadow);">Note-wall</h1>
             <div id="noteRoot">
                 <!-- Notes will be dynamically added here -->

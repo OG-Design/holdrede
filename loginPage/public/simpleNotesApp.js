@@ -4,9 +4,17 @@ const getRoot = document.getElementById('noteRoot');
 
 const container = document.getElementById('notesContainer');
 
+let searchBar = document.getElementsByClassName("searchbar");
+
+
+
+
+
 
 
 async function getNotes()
+    
+
     {
     const res = await fetch('/simpleNotesGET', {
         method: 'GET',
@@ -30,7 +38,7 @@ async function getNotes()
             <input id="${titleID}" class="titleIn" onClick="" value="${element.noteTitle}" placeholder="title"></input>
             <textarea id="${contentID}" class="content" onClick="" placeholder="content">${element.noteContent}</textarea>
             
-            <button id="${titleID+"_del"}" class="delButton" onClick="deleteNote()">Delete</button>
+            <button id="${titleID+"_del"}" class="delButton" onClick="deleteNote()"><img src="./svg/SVG/trashBin.svg"></button>
             </div>`;
             
             container.appendChild(note);
@@ -48,7 +56,7 @@ function noteSkeli() {
     <div class="notepad">
     <input class="titleIn" onClick="" id="${newtitleID}" value="" placeholder="title"></input>
     <textarea class="content" onClick="" id="${newcontentID}" placeholder="content"></textarea>
-    <button class="delButton" id="saveBtn" onClick="postNewNote(true)">Add</button>
+    <button class="button" id="add" onClick="postNewNote(true)">Add</button>
     </div>`;
     
     container.appendChild(note);

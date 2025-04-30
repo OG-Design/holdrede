@@ -6,19 +6,53 @@
     --noteBoxShadow:0px 2px 4px 0px rgba(0,0,0,0.2);
 }
 
+.searchArea {
+    /* shape */
+    width: 100%;
+    height: 5rem;
+
+    /* flex */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    /* style */
+    background-color: var(--color-secondary-1);
+}
+
 .searchbar {
     /* shape */
     width: 50%;
     height: 1.5rem;
     
     /* style */
-    background-color: var(--notepad-default-color-less);
+    background-color: var(--color-secondary);
     border:none;
     font-family: subtitle;
     font-size: 1.25rem;
 }
 
-section {
+.searchButton {
+    /* style */
+    background-color: var(--color-secondary);
+    border: none;
+}
+
+.searchButton:active {
+    /* style */
+    background-color: var(--color-secondary-1);
+    border: none;
+}
+
+.searchDisplay {
+    /* shape */
+    width: 100%;
+    height: 20rem;
+
+    background-color: blueviolet;
+}
+
+.noteWall {
     /* shape */
     width: 100%;
     height: 100%;
@@ -30,8 +64,8 @@ section {
     align-items: center;
 
     /* style */
-    background-color: var(--color-secondary);
-    background-image: url("./img/notesAppBackground.png");
+    background-color: var(--color-primary);
+    /* background-image: url("./img/notesAppBackground.png"); */
 }
 
 #notesContainer {
@@ -96,7 +130,7 @@ section {
 .content {
     /* shape */
     width: 100%;
-    height: 60%;
+    height: 75%;
 
     margin: 0;
     padding: var(--content-padding);
@@ -115,7 +149,7 @@ section {
     
     /* shape */
     width: 100%;
-    height: 60%;
+    height: 75%;
     margin: 0;
     padding: var(--content-padding);
 
@@ -126,7 +160,7 @@ section {
     background-color: hsla(0,0%,0%,0);
 }
 
-.delButton {
+.button {
     /* shape */
     width: 25%;
     height: 15%;
@@ -136,10 +170,32 @@ section {
     background-color: hsla(0, 0%, 100%, .5);
 
 }
-.delButton:active {
+.button:active {
     width: calc(25% -1%);
     height: calc(15% -1%);
     background-color: hsla(0, 0%, 100%, .1);
+}
+
+.delButton {
+    /* shape */
+    height: 3rem;
+    width: 3rem;
+    
+    /* position */
+    position: absolute;
+    transform: translateY(-100%);
+    
+
+    /* style */
+    background-color: hsla(0,0%,0%,0);
+    border:none;
+    transition: .1s;
+}
+.delButton:active {
+    /* shape */
+    height: 3.2rem;
+    width: 3rem;
+    transform: translateY(-100%);
 }
 .saveButton {
     /* shape */
@@ -149,7 +205,7 @@ section {
     margin: 1rem;
 
     /* style */
-    background-color: var(--notepad-default-color);
+    background-color: var(--color-secondary);
     border:none;
     box-shadow: var(--noteBoxShadow);
 }
@@ -161,7 +217,7 @@ section {
     margin: 1rem;
 
     /* style */
-    background-color: var(--notepad-default-color-less);
+    background-color: var(--color-secondary-1);
     border:none;
     box-shadow: var(--noteBoxShadow);
 }

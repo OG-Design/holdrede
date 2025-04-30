@@ -145,3 +145,14 @@ label {
 .btn:active {
     background-color: var(--color-secondary-1);
 }
+
+.exit-btn {
+    width: 5rem;
+
+    background-color: transparent;
+    border: none;
+}
+
+.exit-btn:active {
+    width:5.1rem;
+}
