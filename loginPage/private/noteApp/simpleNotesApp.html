@@ -12,13 +12,13 @@
 </head>
 <body>
     <div>
-        <input type="search" name="notesearch" id="notesearch" placeholder="Search notes..." class="searchBar">
+        <input class="searchbar" type="search" name="notesearch" id="notesearch" placeholder="Search notes..." class="searchBar">
         <button id="searchBtn" class="searchBtn">Search</button>
         <section id="listShow"class="listShow">
             <h1 class="subtitle" style="align-self: start; padding-left: 1rem; padding-right:1rem; padding-top:.5rem; padding-bottom:.5rem; margin:1rem;  background-color: var(--notepad-default-color-less); box-shadow: var(--noteBoxShadow);">Note-wall</h1>
             <div id="noteRoot">
                 <!-- Notes will be dynamically added here -->
-                <button id="alter" onClick="postAlterNote()">Save Changes</button>
+                <button class="saveButton" id="alter" onClick="postAlterNote()">Save Changes</button>
                 <div id="notesContainer">
                     
                 </div>

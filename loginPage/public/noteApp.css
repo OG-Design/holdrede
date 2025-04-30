@@ -5,6 +5,19 @@
     --content-padding:0.2rem;
     --noteBoxShadow:0px 2px 4px 0px rgba(0,0,0,0.2);
 }
+
+.searchbar {
+    /* shape */
+    width: 50%;
+    height: 1.5rem;
+    
+    /* style */
+    background-color: var(--notepad-default-color-less);
+    border:none;
+    font-family: subtitle;
+    font-size: 1.25rem;
+}
+
 section {
     /* shape */
     width: 100%;
@@ -20,6 +33,7 @@ section {
     background-color: var(--color-secondary);
     background-image: url("./img/notesAppBackground.png");
 }
+
 #notesContainer {
     /* shape */
     width: 100%;
@@ -126,4 +140,28 @@ section {
     width: calc(25% -1%);
     height: calc(15% -1%);
     background-color: hsla(0, 0%, 100%, .1);
+}
+.saveButton {
+    /* shape */
+    width:7.5rem;
+    height: 2rem;
+
+    margin: 1rem;
+
+    /* style */
+    background-color: var(--notepad-default-color);
+    border:none;
+    box-shadow: var(--noteBoxShadow);
+}
+.saveButton:active {
+    /* shape */
+    width:7.5rem;
+    height: 2rem;
+
+    margin: 1rem;
+
+    /* style */
+    background-color: var(--notepad-default-color-less);
+    border:none;
+    box-shadow: var(--noteBoxShadow);
 }
