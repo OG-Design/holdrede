@@ -140,7 +140,8 @@ app.get( '/userinfo' , requireLogin , ( req , res ) => {
 
 
 
-
+// 
+// NOTES START
 // note app START
 app.get( '/simpleNotes', requireLogin , ( req , res ) => {
     res.sendFile(__dirname+"/private/noteApp/simpleNotesApp.html");
@@ -193,49 +194,9 @@ app.post("/simpleNotesAlterPOST", requireLogin, (req, res) => {
 
     }
 });
-//display own notes
-// app.get( '/noteDisplayOwnTitles', requireLogin , ( req , res ) => {
-    
-//     try {
-        
-//         const noteDisplay = db.prepare("SELECT list.listID, list.title, listRole.uid, listRole.role FROM list INNER JOIN listRole ON list.listID = listRole.listID WHERE listRole.uid = ?").all(req.session.user.id);
-//         console.log(noteDisplay)
-//         res.json(noteDisplay);
-        
+// NOTES END 
+// 
 
-//     } catch ( error ) {
-//         console.error('error fetching data: ', error.message);
-//         return res.status(500).json({message: 'internal server error'})
-//     }
-    
-// });
-
-// // display own notes content & title
-// app.get( '/noteDisplayOwnContent', requireLogin , ( req , res ) => {
-    
-//     try {
-        
-//         const noteDisplay = db.prepare(`SELECT listItem.listItemID, listItem.content, list.listID, list.title, listRole.uid, listRole.role 
-//                                         FROM listItem 
-//                                         INNER JOIN listRole ON listItem.listID = listRole.listID
-//                                         INNER JOIN list ON listItem.listID = list.listID
-//                                         WHERE listRole.uid = ?
-//                                         GROUP BY listItem.listItemID
-//                                         `).all(req.session.user.id);
-//         console.log(noteDisplay)
-//         res.json(noteDisplay);
-        
-
-//     } catch ( error ) {
-//         console.error('error fetching data: ', error.message);
-//         return res.status(500).json({message: 'internal server error'})
-//     }
-    
-// });
-
-
-
-// note app END
 
 
 

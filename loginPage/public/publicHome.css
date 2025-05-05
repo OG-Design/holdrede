@@ -76,6 +76,6 @@ section p {
     width: 10vw;
     
     /* position */
-    top: 0; 
+    top: 1rem; 
     position: absolute;
 }
