@@ -3,6 +3,7 @@ console.log("ComponentsScriptRunning");
 
 document.getElementById('notesAppBtn').addEventListener("click", notesApp);
 document.getElementById('homeAppBtn').addEventListener("click", homeApp);
+document.getElementById('costAppBtn').addEventListener("click", costApp);
 
 // default display
 document.getElementById('homeRoot').style.display="block";
@@ -15,6 +16,7 @@ const usernameId = "usernameId";
 // check dom content loaded
 document.addEventListener("DOMContentLoaded", showUserName);
 
+// shows username on dash
 async function showUserName () {
     // debug
     console.log("showUserName running")
@@ -39,7 +41,7 @@ async function showUserName () {
 
 
 
-
+// home / dashboard display
 function homeApp () {
     console.log("running: homeApp");
     const getAppRoot = document.getElementById('homeRoot');
@@ -51,12 +53,17 @@ function homeApp () {
     };
 };
 
-
+// redirect to notesApp
 async function notesApp () {
-    console.log("running: notesApp")
+    console.log("running: notesApp");
     const getAppRoot = document.getElementById('noteRoot');
-    window.location.href = "http://localhost:3000/simpleNotes";
+    window.location.href = "/simpleNotes";
 
     console.log(notesApp)
 };
 
+// redirect to costApp
+async function costApp () {
+    console.log("running costApp");
+    window.location.replace("/costs")
+};

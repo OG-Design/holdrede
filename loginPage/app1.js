@@ -16,6 +16,7 @@ const PORT = 3000;
 
 // middleware
 app.use(express.static('public'));
+
 app.use(express.json());
 
 // add view engine for render??? ejs? 
@@ -195,6 +196,57 @@ app.post("/simpleNotesAlterPOST", requireLogin, (req, res) => {
     }
 });
 // NOTES END 
+// 
+
+// 
+// costApp Start
+app.get("/costs", requireLogin, (req, res) => {
+    try {
+        res.sendFile(__dirname+"/private/costsApp/costApp.html")
+    } catch (error) {
+        console.error("error sending file: /costs")
+        res.status(500).json({message: "internal server error"})
+    }
+}); 
+
+app.get("/kostnadAlle", requireLogin, (req, res) => {
+    
+    try {
+        const finnKostAlle = db.prepare("SELECT kjopID, tittel, beskrivelse, dato, kostnad, uid FROM kostnader WHERE uid = ?").all(req.session.user.id);
+        res.json(finnKostAlle);
+        console.log(finnKostAlle);
+    } catch (error) {
+        console.error("error getting kostnad from user with uid:" + " " + req.session.user.id);
+        res.status(500).json({message: "internal server error"});
+    };
+});
+
+app.post("/kostNyPOST", requireLogin, (req, res) => {
+    try {
+        // request 
+        const { tittel , dato , kostnad } = req.body;
+        const uid = req.session.user.id;
+
+        // make query and run statement 
+        const statement = db.prepare("INSERT INTO kostnader (tittel , dato , kostnad , uid) VALUES ( ? , ? , ? , ? ) ").get(uid);
+        statement.run(tittel , dato , kostnad , uid);
+    } catch (error) {
+        console.error("error inserting new data:", error)
+        res.status(500).json({ message: "internal server error" });
+    }
+});
+
+// WIP non functional
+app.post("/kostSlettPOST", requireLogin, ( req , res ) => {
+    try {
+        const uid = req.session.user.id;
+        const statement = db.prepare("").get(uid)
+    } catch ( error ) {
+        console.error("error deleting data: ", error);
+        res.status(500).json({ message: "internal server error" });
+    }
+});
+// costApp End
 // 
 
 
