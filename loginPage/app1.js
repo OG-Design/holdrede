@@ -206,6 +206,7 @@ app.get("/costs", requireLogin, (req, res) => {
     } catch (error) {
         console.error("error sending file: /costs")
         res.status(500).json({message: "internal server error"})
+
     }
 }); 
 
@@ -239,8 +240,10 @@ app.post("/kostNyPOST", requireLogin, (req, res) => {
 // WIP non functional
 app.post("/kostSlettPOST", requireLogin, ( req , res ) => {
     try {
+        const { tittel , dato , kostnad } = req.body;
         const uid = req.session.user.id;
-        const statement = db.prepare("").get(uid)
+        const statement = db.prepare("DELETE FROM kostnad WHERE tittel = ? AND dato = ? AND kostnad = ? AND uid = ? ").get(uid);
+        statement.run(tittel , dato , kostnad , uid );
     } catch ( error ) {
         console.error("error deleting data: ", error);
         res.status(500).json({ message: "internal server error" });

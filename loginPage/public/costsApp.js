@@ -101,6 +101,7 @@ async function costPost(event) {
     window.location.reload();
     
 };
+<<<<<<< Updated upstream
 // delete
 async function delCost() {
     const postDel = fetch('/namehere', {
@@ -113,3 +114,25 @@ async function delCost() {
         })
     });
 };
+=======
+
+async function deleteCost () {
+
+    data.forEach(element => {
+        
+    });
+
+    const postDel = await fetch('/kostSlettPOST', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            tittel,
+            dato,
+            kostnad,
+        })
+    });
+    const data = await postDel.json();
+};
+>>>>>>> Stashed changes
