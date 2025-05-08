@@ -102,6 +102,7 @@ async function costPost(event) {
     
 };
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // delete
 async function delCost() {
     const postDel = fetch('/namehere', {
@@ -115,6 +116,8 @@ async function delCost() {
     });
 };
 =======
+=======
+>>>>>>> Stashed changes
 
 async function deleteCost () {
 
@@ -135,4 +138,7 @@ async function deleteCost () {
     });
     const data = await postDel.json();
 };
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
