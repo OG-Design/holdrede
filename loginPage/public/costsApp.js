@@ -1,6 +1,8 @@
 // get id
 const root = document.getElementById('costRoot');
 
+let content = [];
+
 // get costs
 async function getCosts () {
     const res = await fetch('/kostnadAlle', {
@@ -17,7 +19,8 @@ async function getCosts () {
         // debug
         console.log(element);
 
-
+        content = content + {"tittel": element.tittel, "dato": element.dato, "kostnad": element.kostnad, "kjopID": element.kjopID};
+        console.log("content: ", content);
         
         // contents definition
         const kjopPos = data.indexOf(element)+1;
@@ -101,29 +104,9 @@ async function costPost(event) {
     window.location.reload();
     
 };
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-// delete
-async function delCost() {
-    const postDel = fetch('/namehere', {
-        method: 'POST',
-        headers: {
-            'method': 'application/json'
-        },
-        body: JSON.stringify({
-            
-        })
-    });
-};
-=======
-=======
->>>>>>> Stashed changes
+
 
 async function deleteCost () {
-
-    data.forEach(element => {
-        
-    });
 
     const postDel = await fetch('/kostSlettPOST', {
         method: 'post',
@@ -138,7 +121,3 @@ async function deleteCost () {
     });
     const data = await postDel.json();
 };
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
