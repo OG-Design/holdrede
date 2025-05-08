@@ -101,3 +101,15 @@ async function costPost(event) {
     window.location.reload();
     
 };
+// delete
+async function delCost() {
+    const postDel = fetch('/namehere', {
+        method: 'POST',
+        headers: {
+            'method': 'application/json'
+        },
+        body: JSON.stringify({
+            
+        })
+    });
+};
